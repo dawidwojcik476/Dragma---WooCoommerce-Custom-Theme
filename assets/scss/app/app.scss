@@ -1,0 +1,42 @@
+@import 'elements/header.scss';
+@import 'elements/front-bottles.scss';
+@import 'elements/front-history.scss';
+@import 'elements/front-coctails.scss';
+@import 'elements/products-slider.scss';
+@import 'elements/footer.scss';
+@import 'elements/single-page.scss';
+@import 'elements/single-recipe.scss';
+@import 'elements/history.scss';
+@import 'elements/shop.scss';
+@import 'elements/addtocartpopup.scss';
+@import 'elements/single-product.scss';
+@import 'elements/cart.scss';
+@import 'elements/chwala.scss';
+@import 'elements/agegate.scss';
+@import 'elements/contact.scss';
+@import 'elements/searchresults.scss';
+
+
+
+.break {
+
+    height: 400px;
+    background-position: top;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 3;
+
+    @media (max-width:1000px) {
+        @supports (-webkit-touch-callout: none) {
+
+            height: 300px;
+            background-position: center;
+            background-attachment: scroll;
+            position: relative;
+            z-index: 3;
+            background-size: cover;
+
+        }
+    }
+
+}

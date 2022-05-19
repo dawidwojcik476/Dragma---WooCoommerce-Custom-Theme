@@ -1,0 +1,72 @@
+.age-gate-wrapper {
+    background-image: url(../images/background.webp);
+
+    position: relative;
+    overflow: hidden;
+    .age-gate-error-message {
+        color:white;
+        margin-bottom: 10px;
+    }
+    &::after {
+        content: '';
+        background-image: url(../images/crop2c.webp);
+        background-size: cover;
+        width: 100vw;
+        background-position: center;
+        position: absolute;
+        height: 100vh;
+        @media (max-width:1000px) {
+           display: none;
+        }
+    }
+    .age-gate {
+        position: relative;
+    z-index: 1;
+    }
+    .age-gate-form {
+        background-color: transparent;
+        max-width: 600px;
+
+        .age-gate-heading {
+            display: none;
+        }
+        .age-gate-subheading {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            line-height: 48px;
+
+            @media (max-width:600px) {
+                font-size: 24px;
+    font-weight: bold;
+    color: white;
+    line-height: 36px;
+            }
+        }
+        .age-gate-challenge {
+            font-size: 24px;
+            color: #FFB81C;
+            font-weight: bold;
+        }
+        .age-gate-submit-yes,
+        .age-gate-submit-no {
+            text-transform: uppercase;
+            background: transparent;
+            border: 1px solid #FFB81C;
+            color: #FFB81C;
+            font-size: 17px;
+            padding: 9px 70px;
+            margin:20px 15px 10px 0;
+            cursor: pointer;
+            transition: 0.4s;
+            
+            &:hover {
+                background-color:#AE2573;
+                border:1px solid #AE2573;
+                color:white;
+                font-weight: bold;
+                box-shadow: 0px 0px 20px -3px rgba(255, 184, 28, 1);
+            }
+        }
+    }
+}

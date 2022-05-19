@@ -1,0 +1,1511 @@
+.main.cart {
+    z-index: 1;
+
+    h1 {
+        font-size: 64px;
+        color: #AE2573;
+        text-align: center;
+        margin-bottom: 30px;
+
+        @media (max-width:650px) {
+            font-size: 40px;
+        }
+    }
+}
+
+.woocommerce-error,
+.woocommerce-info,
+.woocommerce-message {
+    background-color: transparent;
+    color: #515151;
+    border-top: 2px solid #AE2573;
+
+    .restore-item {
+        color: #515151;
+
+    }
+}
+
+.woocommerce-message::before {
+    color: #AE2573;
+}
+
+.woocommerce-error::before,
+.woocommerce-info::before,
+.woocommerce-message::before {
+    color: #AE2573;
+}
+
+.woocommerce-cart {
+    .woocommerce {
+        z-index: 1;
+        position: relative;
+
+        .return-to-shop {
+
+            display: flex;
+
+            a {
+                margin-left: 35px;
+                background: #AE2573;
+                color: white;
+                text-transform: uppercase;
+                text-decoration: none;
+                padding: 10px 25px;
+                font-weight: 700;
+                font-size: 15px;
+                border-radius: 0;
+                position: relative;
+                transition: 0.25s;
+                margin-bottom: 0;
+                box-sizing: border-box;
+                box-shadow: inset 0 0 0 2px transparent;
+                height: 36px;
+                display: flex;
+
+                justify-content: center;
+                align-items: center;
+
+                &:disabled[disabled] {
+                    color: white;
+                    background-color: #AE2573;
+                }
+
+                &::before,
+                &::after {
+                    box-sizing: inherit;
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &::before,
+                &::after {
+                    // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+                    border: 2px solid transparent;
+                    width: 0;
+                    height: 0;
+                }
+
+                // This covers the top & right borders (expands right, then down)
+                &::before {
+                    top: 0;
+                    left: 0;
+                }
+
+                // And this the bottom & left borders (expands left, then up)
+                &::after {
+                    bottom: 0;
+                    right: 0;
+                }
+
+                @supports (-webkit-touch-callout: none) {
+
+
+                    @media (min-width:900px) {
+
+                        // Hover styles
+                        &:hover {
+                            font-weight: 700;
+
+                            color: #AE2573;
+                            background: transparent;
+
+                            &::before,
+                            &::after {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            &::before {
+                                border-top-color: #AE2573; // Make borders visible
+                                border-right-color: #AE2573;
+                                transition:
+                                    width 0.25s ease-out, // Width expands first
+                                    height 0.25s ease-out 0.25s; // And then height
+                            }
+
+                            &::after {
+                                border-bottom-color: #AE2573; // Make borders visible
+                                border-left-color: #AE2573;
+                                transition:
+                                    border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                                    width 0.25s ease-out 0.5s, // And then exanding width
+                                    height 0.25s ease-out 0.75s; // And finally height
+                            }
+
+
+
+                            // Start ::after in same position as ::before
+                            &::after {
+                                top: 0;
+                                left: 0;
+                            }
+
+                            // Change colors
+                            &::before {
+                                border-top-color: #AE2573;
+                                border-right-color: #AE2573;
+                            }
+
+                            &::after {
+                                border-bottom-color: #AE2573;
+                                border-left-color: #AE2573;
+                                transition: // Animate height first, then width
+                                    height 0.25s ease-out,
+                                    width 0.25s ease-out 0.25s;
+                            }
+                        }
+                    }
+                }
+
+                @supports (-webkit-touch-callout: none) {
+
+
+                    @media (min-width:900px) {
+                        &:hover {
+                            font-weight: 700;
+
+                            color: #AE2573;
+                            background: transparent;
+
+                            &::before,
+                            &::after {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            &::before {
+                                border-top-color: #AE2573; // Make borders visible
+                                border-right-color: #AE2573;
+                                transition:
+                                    width 0.25s ease-out, // Width expands first
+                                    height 0.25s ease-out 0.25s; // And then height
+                            }
+
+                            &::after {
+                                border-bottom-color: #AE2573; // Make borders visible
+                                border-left-color: #AE2573;
+                                transition:
+                                    border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                                    width 0.25s ease-out 0.5s, // And then exanding width
+                                    height 0.25s ease-out 0.75s; // And finally height
+                            }
+
+
+
+                            // Start ::after in same position as ::before
+                            &::after {
+                                top: 0;
+                                left: 0;
+                            }
+
+                            // Change colors
+                            &::before {
+                                border-top-color: #AE2573;
+                                border-right-color: #AE2573;
+                            }
+
+                            &::after {
+                                border-bottom-color: #AE2573;
+                                border-left-color: #AE2573;
+                                transition: // Animate height first, then width
+                                    height 0.25s ease-out,
+                                    width 0.25s ease-out 0.25s;
+                            }
+
+                        }
+                    }
+                }
+
+                @supports not (-webkit-touch-callout: none) {
+                    &:hover {
+                        font-weight: 700;
+
+                        color: #AE2573;
+                        background: transparent;
+
+                        &::before,
+                        &::after {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        &::before {
+                            border-top-color: #AE2573; // Make borders visible
+                            border-right-color: #AE2573;
+                            transition:
+                                width 0.25s ease-out, // Width expands first
+                                height 0.25s ease-out 0.25s; // And then height
+                        }
+
+                        &::after {
+                            border-bottom-color: #AE2573; // Make borders visible
+                            border-left-color: #AE2573;
+                            transition:
+                                border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                                width 0.25s ease-out 0.5s, // And then exanding width
+                                height 0.25s ease-out 0.75s; // And finally height
+                        }
+
+
+
+                        // Start ::after in same position as ::before
+                        &::after {
+                            top: 0;
+                            left: 0;
+                        }
+
+                        // Change colors
+                        &::before {
+                            border-top-color: #AE2573;
+                            border-right-color: #AE2573;
+                        }
+
+                        &::after {
+                            border-bottom-color: #AE2573;
+                            border-left-color: #AE2573;
+                            transition: // Animate height first, then width
+                                height 0.25s ease-out,
+                                width 0.25s ease-out 0.25s;
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+        button.button {
+
+            margin-left: 35px;
+            background: #AE2573;
+            color: white;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 25px;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 0;
+            position: relative;
+            transition: 0.25s;
+            margin-bottom: 0;
+            box-sizing: border-box;
+            box-shadow: inset 0 0 0 2px transparent;
+            height: 36px;
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            @media (max-width:768px) {
+                margin-left: auto;
+                font-size: 11px;
+                padding: 10px 10px;
+                max-width: 166px;
+            }
+
+            &:disabled[disabled] {
+                color: white;
+                background-color: #AE2573;
+            }
+
+            &::before,
+            &::after {
+                box-sizing: inherit;
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            &::before,
+            &::after {
+                // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+                border: 2px solid transparent;
+                width: 0;
+                height: 0;
+            }
+
+            // This covers the top & right borders (expands right, then down)
+            &::before {
+                top: 0;
+                left: 0;
+            }
+
+            // And this the bottom & left borders (expands left, then up)
+            &::after {
+                bottom: 0;
+                right: 0;
+            }
+
+
+            @supports not (-webkit-touch-callout: none) {
+
+                // Hover styles
+                &:hover {
+                    font-weight: 700;
+
+                    color: #AE2573;
+                    background: transparent;
+
+                    &::before,
+                    &::after {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    &::before {
+                        border-top-color: #AE2573; // Make borders visible
+                        border-right-color: #AE2573;
+                        transition:
+                            width 0.25s ease-out, // Width expands first
+                            height 0.25s ease-out 0.25s; // And then height
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573; // Make borders visible
+                        border-left-color: #AE2573;
+                        transition:
+                            border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                            width 0.25s ease-out 0.5s, // And then exanding width
+                            height 0.25s ease-out 0.75s; // And finally height
+                    }
+
+
+
+                    // Start ::after in same position as ::before
+                    &::after {
+                        top: 0;
+                        left: 0;
+                    }
+
+                    // Change colors
+                    &::before {
+                        border-top-color: #AE2573;
+                        border-right-color: #AE2573;
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573;
+                        border-left-color: #AE2573;
+                        transition: // Animate height first, then width
+                            height 0.25s ease-out,
+                            width 0.25s ease-out 0.25s;
+                    }
+                }
+            }
+        }
+
+        table.shop_table {
+            border: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
+
+            thead {
+                background: #AE2573;
+                color: white;
+                font-size: 15px;
+            }
+        }
+
+        table.shop_table th {
+            text-align: center;
+        }
+
+        table.shop_table td {
+            text-align: center;
+            padding: 16px 12px;
+        }
+
+        table.shop_table .product-name {
+            text-align: left;
+
+
+            a {
+                font-weight: 700;
+                color: black;
+                font-size: 18px;
+                text-decoration: none;
+
+                @media (max-width:1600px) {
+                    font-size: 13px;
+                    margin-left: 0;
+                }
+
+                &:nth-child(2) {
+                    top: -55px;
+                    position: relative;
+                    margin-left: 20px;
+
+                    @media (max-width:1600px) {
+                        font-size: 13px;
+                        margin-left: 10px;
+                    }
+
+                    @media (max-width:1350px) {
+                        display: block;
+                        margin-left: 140px;
+                        width: 58%;
+
+                        font-size: 15px;
+                    }
+
+                    @media (max-width:850px) {
+                        margin-left: 113px;
+                        width: 50%;
+                    }
+
+                    @media (max-width:768px) {
+                        display: inline;
+                        margin-left: 15px;
+                        top: 0px;
+                    }
+                }
+
+                &:nth-child(1) {
+
+                    @media (max-width:768px) {
+                        display: none;
+                    }
+                }
+            }
+
+            img {
+                object-fit: contain;
+                width: 121px;
+                box-shadow: none;
+                background: white;
+                border-radius: 50%;
+                padding: 7px;
+                height: 123px;
+
+                @media (max-width:1350px) {
+                    position: relative;
+                    top: 33px;
+                }
+
+                @media (max-width:900px) {
+                    width: 95px;
+
+
+                    height: 98px;
+                }
+
+                @media (max-width:768px) {
+                    top: 0px;
+                }
+            }
+        }
+
+    }
+
+    table.cart td.actions .coupon .input-text {
+        height: 36px;
+        width: 150px;
+        margin: 0;
+
+        @media (max-width:768px) {
+            width: 120px;
+
+        }
+    }
+
+    @media (max-width:768px) {
+        .coupon {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+
+    .wc-proceed-to-checkout {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        @media (max-width:768px) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a.checkout-button {
+            margin-left: 35px;
+            background: #AE2573;
+            color: white;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 25px;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 0;
+            position: relative;
+            transition: 0.25s;
+            margin-bottom: 0;
+            box-sizing: border-box;
+            box-shadow: inset 0 0 0 2px transparent;
+            height: 41px;
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            @media (max-width:768px) {
+                margin-left: 0;
+                margin-top: 20px;
+                font-size: 13px;
+                padding: 10px 15px;
+            }
+
+            &::before,
+            &::after {
+                box-sizing: inherit;
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            &::before,
+            &::after {
+                // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+                border: 2px solid transparent;
+                width: 0;
+                height: 0;
+            }
+
+            // This covers the top & right borders (expands right, then down)
+            &::before {
+                top: 0;
+                left: 0;
+            }
+
+            // And this the bottom & left borders (expands left, then up)
+            &::after {
+                bottom: 0;
+                right: 0;
+            }
+
+
+
+            @supports not (-webkit-touch-callout: none) {
+
+                // Hover styles
+                &:hover {
+                    font-weight: 700;
+
+                    color: #AE2573;
+                    background: transparent;
+
+                    &::before,
+                    &::after {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    &::before {
+                        border-top-color: #AE2573; // Make borders visible
+                        border-right-color: #AE2573;
+                        transition:
+                            width 0.25s ease-out, // Width expands first
+                            height 0.25s ease-out 0.25s; // And then height
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573; // Make borders visible
+                        border-left-color: #AE2573;
+                        transition:
+                            border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                            width 0.25s ease-out 0.5s, // And then exanding width
+                            height 0.25s ease-out 0.75s; // And finally height
+                    }
+
+
+
+                    // Start ::after in same position as ::before
+                    &::after {
+                        top: 0;
+                        left: 0;
+                    }
+
+                    // Change colors
+                    &::before {
+                        border-top-color: #AE2573;
+                        border-right-color: #AE2573;
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573;
+                        border-left-color: #AE2573;
+                        transition: // Animate height first, then width
+                            height 0.25s ease-out,
+                            width 0.25s ease-out 0.25s;
+                    }
+                }
+            }
+
+        }
+
+        a.shop-link {
+            background: transparent;
+            color: #AE2573;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 25px;
+            font-weight: 700;
+            font-size: 16px;
+            height: 41px;
+            position: relative;
+            transition: 0.25s;
+
+            box-sizing: border-box;
+            box-shadow: inset 0 0 0 2px transparent;
+            border: 1px solid #AE2573;
+
+            @media (max-width:768px) {
+
+                font-size: 13px;
+                padding: 10px 15px;
+            }
+
+            &:hover {
+                font-weight: 700;
+
+                color: white;
+                background: #AE2573;
+
+
+
+
+            }
+        }
+    }
+}
+
+
+.woocommerce-cart-form__cart-item {
+    height: 190px;
+
+    .product-remove {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 190px;
+
+        @media (max-width:768px) {
+            height: auto;
+            display: flex !important;
+            justify-content: flex-end;
+        }
+
+        .remove {
+            background-image: url(../images/delete.webp);
+            display: block;
+            background-repeat: no-repeat;
+            background-size: 16px 19px;
+            border-radius: 0;
+            background-position: center;
+            color: transparent !important;
+            background-color: transparent !important;
+
+            &:hover {
+                color: #AE2573 !important;
+            }
+        }
+    }
+
+    .product-quantity {
+        .qib-container {
+
+            .qib-button,
+            .qib-button:not(#qib_id):not(#qib_id) {
+                background: transparent;
+                border: 0;
+                font-size: 55px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 300;
+                cursor: pointer;
+                color: black;
+                transition: 0.4s;
+
+                &.plus {
+
+                    font-size: 35px;
+                }
+
+                &:hover {
+                    color: #ae2573;
+                }
+            }
+
+            div.quantity:not(#qib_id):not(#qib_id) {
+                margin: 0px 5px;
+
+                .input-text {
+                    border: 1px solid #ae2573;
+                    outline: 0;
+                    font-weight: 700;
+                    width: 54px;
+                    height: 38px;
+
+                    &:focus {
+                        border: 1px solid #ae2573;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .quantity {
+
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width:1000px) {
+            width: auto;
+        }
+
+        @media (max-width:768px) {
+            justify-content: flex-end;
+        }
+
+
+
+
+        .qty {
+            padding-left: 15px;
+            width: 54px;
+            height: 38px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            background-color: transparent;
+            border: 1px solid #AE2573;
+            outline: 0;
+            font-weight: bold;
+
+            @media (max-width:768px) {
+                padding-left: 0;
+                ;
+            }
+
+        }
+
+        .quantity-minus {
+            margin-left: 15px;
+            margin-right: 10px;
+            position: relative;
+            cursor: pointer;
+
+            height: 38px;
+            width: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 20px;
+                height: 2px;
+                background-color: black;
+                transition: 0.4s;
+            }
+
+            &:hover {
+                &::after {
+                    background-color:
+                        #AE2573;
+
+                }
+            }
+        }
+
+        .quantity-plus {
+
+            margin-left: 7px;
+
+            margin-right: 10px;
+            position: relative;
+            cursor: pointer;
+
+            height: 38px;
+            width: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 20px;
+                height: 2px;
+                background-color: black;
+                transition: 0.4s;
+            }
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 20px;
+                height: 2px;
+                background-color: black;
+                transition: 0.4s;
+                transform: rotate(90deg);
+            }
+
+            &:hover {
+
+                &::after,
+                &::before {
+                    background-color:
+                        #AE2573;
+
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .woocommerce-page table.shop_table_responsive .woocommerce-cart-form__cart-item {
+        display: flex;
+        flex-direction: column;
+        height: 324px;
+        border: 2px solid #AE2573;
+        border-bottom: 0;
+
+        &:nth-last-child(2) {
+            border-bottom: 2px solid #AE2573;
+        }
+    }
+
+    .woocommerce table.shop_table_responsive tr td:nth-child(2):before,
+    .woocommerce-page table.shop_table_responsive tr td:nth-child(2)::before {
+        display: none;
+    }
+
+    .woocommerce table.shop_table_responsive .woocommerce-cart-form__cart-item td::before,
+    .woocommerce-page table.shop_table_responsive .woocommerce-cart-form__cart-item td::before {
+        display: block
+    }
+}
+
+.woocommerce {
+    position: relative;
+    z-index: 2;
+
+    .woocommerce-info {
+        background: transparent;
+        border-top: 2px solid #AE2573;
+
+        &::before {
+            color: #AE2573;
+
+        }
+
+        .showcoupon {
+            color: #515151;
+        }
+    }
+
+    form .labeloff {
+        label {
+            display: none;
+        }
+    }
+
+
+    .woocommerce-radio-wrapper {
+        display: flex;
+
+        input {
+
+            margin-top: 7px;
+
+        }
+
+        label {
+            a {
+                color: #ae2573;
+            }
+        }
+
+        [type="radio"],
+        [type="checkbox"] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        label,
+        [type="checkbox"]+label {
+            position: relative;
+            padding-left: 23px;
+            line-height: 20px;
+
+        }
+
+        label::before,
+        [type="checkbox"]+label::before,
+        label::after,
+        [type="checkbox"]+label::after {
+            content: "";
+            position: absolute;
+            box-sizing: border-box;
+        }
+
+        label::before,
+        label::after {
+            border-radius: 50%;
+        }
+
+        label::before,
+        [type="checkbox"]+label::before {
+            top: 6px;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            border: 3px solid #C156A8;
+            border-radius: 50%;
+        }
+
+        label::after,
+        [type="checkbox"]+label::after {
+            top: 11px;
+            left: 5px;
+            width: 6px;
+            height: 6px;
+            background: #C156A8;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+
+        [type="radio"]:not(:checked)+label::after,
+        [type="checkbox"]:not(:checked)+label::after {
+            opacity: 0;
+            transform: scale(0.01);
+        }
+
+        [type="radio"]:checked+label::after,
+        [type="checkbox"]:checked+label::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+    }
+
+    .wc_payment_method {
+
+        [type="radio"],
+        [type="checkbox"] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        label,
+        [type="checkbox"]+label {
+            position: relative;
+            padding-left: 23px;
+
+        }
+
+        label::before,
+        [type="checkbox"]+label::before,
+        label::after,
+        [type="checkbox"]+label::after {
+            content: "";
+            position: absolute;
+            box-sizing: border-box;
+        }
+
+        label::before,
+        label::after {
+            border-radius: 50%;
+        }
+
+        label::before,
+        [type="checkbox"]+label::before {
+            top: 0px;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            border: 3px solid #C156A8;
+            border-radius: 50%;
+        }
+
+        label::after,
+        [type="checkbox"]+label::after {
+            top: 5px;
+            left: 5px;
+            width: 6px;
+            height: 6px;
+            background: #C156A8;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+
+        [type="radio"]:not(:checked)+label::after,
+        [type="checkbox"]:not(:checked)+label::after {
+            opacity: 0;
+            transform: scale(0.01);
+        }
+
+        [type="radio"]:checked+label::after,
+        [type="checkbox"]:checked+label::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+.woocommerce-billing-fields,
+.woocommerce-additional-fields {
+    h3 {
+        font-size: 24px;
+        color: #AE2573;
+    }
+}
+
+.woocommerce-shipping-fields {
+    @media (max-width:768px) {
+        margin-top: 40px;
+    }
+
+    #ship-to-different-address {
+        font-size: 24px;
+        color: #AE2573;
+
+        label {
+
+            [type="radio"],
+            [type="checkbox"] {
+                position: absolute;
+                left: -9999px;
+            }
+
+            span,
+            [type="checkbox"]+span {
+                position: relative;
+                padding-left: 23px;
+                line-height: 20px;
+                font-size: 18px;
+
+
+            }
+
+            span::before,
+            [type="checkbox"]+span::before,
+            span::after,
+            [type="checkbox"]+span::after {
+                content: "";
+                position: absolute;
+                box-sizing: border-box;
+            }
+
+            span::before,
+            span::after {
+                border-radius: 50%;
+            }
+
+            span::before,
+            [type="checkbox"]+span::before {
+                top: 3px;
+                left: 0;
+                width: 16px;
+                height: 16px;
+                border: 3px solid #C156A8;
+                border-radius: 50%;
+            }
+
+            span::after,
+            [type="checkbox"]+span::after {
+                top: 8px;
+                left: 5px;
+                width: 6px;
+                height: 6px;
+                background: #C156A8;
+                border-radius: 50%;
+                transition: all 0.2s;
+            }
+
+            [type="radio"]:not(:checked)+span::after,
+            [type="checkbox"]:not(:checked)+span::after {
+                opacity: 0;
+                transform: scale(0.01);
+            }
+
+            [type="radio"]:checked+span::after,
+            [type="checkbox"]:checked+span::after {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    }
+
+    .select2-container--default .select2-selection--single {
+        border: 1px solid #AE2573;
+    }
+
+    .form-row {
+        margin-top: 20px !important;
+    }
+
+    .input-text {
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        border-bottom: 1px solid black;
+        transition: 0.4s;
+        padding: 4px 4px;
+        font-size: 18px;
+     
+
+        &:focus {
+            border-bottom: 1px solid #AE2573;
+        }
+    }
+}
+
+.woocommerce form .form-row textarea {
+    font-size: 18px;
+    ;
+}
+
+#order_review_heading {
+    font-size: 24px;
+    color: #AE2573;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.woocommerce-billing-fields__field-wrapper {
+    .select2-container--default .select2-selection--single {
+        border: 1px solid #AE2573;
+    }
+
+    .form-row {
+        margin-top: 20px !important;
+    }
+
+    .input-text {
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        border-bottom: 1px solid black;
+        transition: 0.4s;
+        padding: 4px 4px;
+        font-size: 18px;
+        &::placeholder {
+            @media (max-width:900px) {
+                font-size: 13px;
+            }
+        }
+        &:focus {
+            border-bottom: 1px solid #AE2573;
+        }
+    }
+}
+
+.woocommerce-additional-fields__field-wrapper {
+
+    .input-text,
+    textarea {
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        border-bottom: 1px solid black;
+        transition: 0.4s;
+        padding: 4px 4px;
+
+        &:focus {
+            border-bottom: 1px solid #AE2573;
+        }
+    }
+}
+
+#add_payment_method #payment,
+.woocommerce-cart #payment,
+.woocommerce-checkout #payment {
+    border-radius: 0;
+    background: transparent;
+}
+
+#add_payment_method #payment div.payment_box::before,
+.woocommerce-cart #payment div.payment_box::before,
+.woocommerce-checkout #payment div.payment_box::before {
+    border: 1em solid #AE2573;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+}
+
+#add_payment_method #payment div.payment_box,
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
+    color: white;
+    background-color: #AE2573;
+
+}
+
+.woocommerce-privacy-policy-text {
+
+    p {
+
+        color: #515151;
+
+        a {
+
+            color: #515151;
+        }
+    }
+}
+
+#add_payment_method #payment ul.payment_methods,
+.woocommerce-cart #payment ul.payment_methods,
+.woocommerce-checkout #payment ul.payment_methods {
+    border-bottom: 1px solid #AE2573;
+}
+
+.place-order {
+    #place_order {
+        margin-top: 20px;
+        background: #AE2573;
+        color: white;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px 25px;
+        font-weight: 700;
+        font-size: 15px;
+        border-radius: 0;
+        position: relative;
+        transition: 0.25s;
+        margin-bottom: 0;
+        box-sizing: border-box;
+        box-shadow: inset 0 0 0 2px transparent;
+        height: 36px;
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        @media (max-width:768px) {
+            margin-left: auto;
+            font-size: 11px;
+            padding: 10px 0px;
+            max-width: 166px;
+        }
+
+        &:disabled[disabled] {
+            color: white;
+            background-color: #AE2573;
+        }
+
+        &::before,
+        &::after {
+            box-sizing: inherit;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        &::before,
+        &::after {
+            // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+            border: 2px solid transparent;
+            width: 0;
+            height: 0;
+        }
+
+        // This covers the top & right borders (expands right, then down)
+        &::before {
+            top: 0;
+            left: 0;
+        }
+
+        // And this the bottom & left borders (expands left, then up)
+        &::after {
+            bottom: 0;
+            right: 0;
+        }
+
+        @supports not (-webkit-touch-callout: none) {
+            &:hover {
+                font-weight: 700;
+
+                color: #AE2573;
+                background: transparent;
+
+                &::before,
+                &::after {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &::before {
+                    border-top-color: #AE2573; // Make borders visible
+                    border-right-color: #AE2573;
+                    transition:
+                        width 0.25s ease-out, // Width expands first
+                        height 0.25s ease-out 0.25s; // And then height
+                }
+
+                &::after {
+                    border-bottom-color: #AE2573; // Make borders visible
+                    border-left-color: #AE2573;
+                    transition:
+                        border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                        width 0.25s ease-out 0.5s, // And then exanding width
+                        height 0.25s ease-out 0.75s; // And finally height
+                }
+
+
+
+                // Start ::after in same position as ::before
+                &::after {
+                    top: 0;
+                    left: 0;
+                }
+
+                // Change colors
+                &::before {
+                    border-top-color: #AE2573;
+                    border-right-color: #AE2573;
+                }
+
+                &::after {
+                    border-bottom-color: #AE2573;
+                    border-left-color: #AE2573;
+                    transition: // Animate height first, then width
+                        height 0.25s ease-out,
+                        width 0.25s ease-out 0.25s;
+                }
+            }
+        }
+
+        @supports (-webkit-touch-callout: none) {
+
+
+            @media (min-width:900px) {
+
+                // Hover styles
+                &:hover {
+                    font-weight: 700;
+
+                    color: #AE2573;
+                    background: transparent;
+
+                    &::before,
+                    &::after {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    &::before {
+                        border-top-color: #AE2573; // Make borders visible
+                        border-right-color: #AE2573;
+                        transition:
+                            width 0.25s ease-out, // Width expands first
+                            height 0.25s ease-out 0.25s; // And then height
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573; // Make borders visible
+                        border-left-color: #AE2573;
+                        transition:
+                            border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                            width 0.25s ease-out 0.5s, // And then exanding width
+                            height 0.25s ease-out 0.75s; // And finally height
+                    }
+
+
+
+                    // Start ::after in same position as ::before
+                    &::after {
+                        top: 0;
+                        left: 0;
+                    }
+
+                    // Change colors
+                    &::before {
+                        border-top-color: #AE2573;
+                        border-right-color: #AE2573;
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573;
+                        border-left-color: #AE2573;
+                        transition: // Animate height first, then width
+                            height 0.25s ease-out,
+                            width 0.25s ease-out 0.25s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.woocommerce-thankyou-order-received {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.woocommerce-order-details__title,
+.woocommerce-column__title {
+    font-size: 24px;
+    color: #AE2573;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.woocommerce-table--order-details {
+    a {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
+
+.wc-backward {
+    color: #515151;
+}
+
+.woocommerce-cart {
+    .app-container::after {
+        z-index: 0;
+        width: 626px;
+        height: 1059px;
+
+        opacity: 0.5;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @media (max-width:1650px) {
+
+            right: 0%;
+            width: 426px;
+            height: 959px;
+        }  
+         @media (max-width:1450px) {
+
+
+            width: 341px;
+            height: 789px;
+        }
+
+        @media (max-width:1100px) {
+            display: none;
+        }
+
+    }
+}

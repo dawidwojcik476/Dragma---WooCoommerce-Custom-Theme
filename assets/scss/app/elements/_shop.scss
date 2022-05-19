@@ -1,0 +1,325 @@
+.products {
+
+
+    margin-bottom: 45px;
+
+    h4 {
+        margin-top: 70px;
+        text-align: center;
+        color: #FFB81C;
+        font-size: 64px;
+        margin-bottom: 43px;
+@media (max-width:1600px) {
+    font-size: 40px;
+}
+@media (max-width:800px) {
+    font-size: 30px;
+}
+        @media (max-width:850px) {
+            margin-bottom: 23px;
+            margin-top: 40px;
+        }
+
+  
+    }
+
+    &__container {
+
+        position: relative;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 60px;
+
+        @media (max-width:1200px) {
+            padding: 0px;
+            padding-bottom: 50px;
+        }
+
+        @media (max-width:850px) {
+            padding: 0px;
+            padding-bottom: 35px;
+        }
+
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .attachment-woocommerce_thumbnail {
+            z-index: 3;
+            background: white;
+            height: 340px;
+            width: 330px;
+            object-fit: contain;
+            padding: 20px;
+            border-radius: 50%;
+            transition: 0.6s;
+            margin-top: 40px;
+
+            @media (max-width:1300px) {
+                height: 280px;
+                width: 280px;
+            }
+
+            &:hover {
+
+                box-shadow: 0px 1px 41px 4px rgba(174, 37, 115, 1);
+
+                @media (max-width:850px) {
+                    box-shadow: 0px 1px 21px 4px rgba(174, 37, 115, 1);
+                }
+            }
+
+            @media (max-width:850px) {
+                height: 260px;
+                width: 255px;
+            }
+
+
+        }
+
+        li.product {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+            align-items: center;
+            width: 30%;
+            justify-content: center;
+            background-image: url(../images/yellowbg.webp);
+   
+            padding-bottom: 40px;
+            margin: 15px;
+
+            @media (max-width:1100px) {
+                width: 43%;
+            }
+
+            @media (max-width:800px) {
+                width: 100%;
+            }
+.added_to_cart {
+    display: none;
+}
+            .button {
+                z-index: 3;
+                text-decoration: none;
+                color: black;
+                text-transform: uppercase;
+                border: 1px solid black;
+                background-color: transparent;
+                border-radius: 0;
+                font-weight: normal;
+                margin: 5px;
+                width: 43%;
+                text-align: center;
+                height: 38px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                transition: 0.20s;
+
+                box-sizing: border-box;
+                box-shadow: inset 0 0 0 2px transparent;
+                &.loading::after {
+                    transform: none !important;
+                    animation: none;
+                }
+                &.added::after {
+                    margin-left: 0!important;
+                }
+                @media (max-width:850px) {
+
+                    height: 30px;
+                    font-size: 14px;
+                }
+
+                &::before,
+                &::after {
+                    box-sizing: inherit;
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &::before,
+                &::after {
+                    // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+                    border: 1px solid transparent;
+                    width: 0;
+                    height: 0;
+                }
+
+                // This covers the top & right borders (expands right, then down)
+                &::before {
+                    top: 0;
+                    left: 0;
+                }
+
+                // And this the bottom & left borders (expands left, then up)
+                &::after {
+                    bottom: 0;
+                    right: 0;
+                }
+
+                @supports not (-webkit-touch-callout: none) {
+             
+               
+
+                // Hover styles
+                &:hover {
+
+                    border: 1px solid #AE2573;
+                    color: #AE2573;
+                    background: transparent;
+
+                    &::before,
+                    &::after {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    &::before {
+                        border-top-color: #AE2573; // Make borders visible
+                        border-right-color: #AE2573;
+                        transition:
+                            width 0.25s ease-out, // Width expands first
+                            height 0.25s ease-out 0.25s; // And then height
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573; // Make borders visible
+                        border-left-color: #AE2573;
+                        transition:
+                            border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                            width 0.25s ease-out 0.5s, // And then exanding width
+                            height 0.25s ease-out 0.75s; // And finally height
+                    }
+
+
+
+                    // Start ::after in same position as ::before
+                    &::after {
+                        top: 0;
+                        left: 0;
+                    }
+
+                    // Change colors
+                    &::before {
+                        border-top-color: #AE2573;
+                        border-right-color: #AE2573;
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573;
+                        border-left-color: #AE2573;
+                        transition: // Animate height first, then width
+                            height 0.25s ease-out,
+                            width 0.25s ease-out 0.25s;
+                    }
+
+
+                }
+            }
+            @supports (-webkit-touch-callout: none) {
+
+                @media (min-width:900px) {
+
+                    
+              
+                &:hover {
+                    font-weight: 700;
+
+                    color: #AE2573;
+                    background: transparent;
+
+                    &::before,
+                    &::after {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    &::before {
+                        border-top-color: #AE2573; // Make borders visible
+                        border-right-color: #AE2573;
+                        transition:
+                            width 0.25s ease-out, // Width expands first
+                            height 0.25s ease-out 0.25s; // And then height
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573; // Make borders visible
+                        border-left-color: #AE2573;
+                        transition:
+                            border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                            width 0.25s ease-out 0.5s, // And then exanding width
+                            height 0.25s ease-out 0.75s; // And finally height
+                    }
+
+
+
+                    // Start ::after in same position as ::before
+                    &::after {
+                        top: 0;
+                        left: 0;
+                    }
+
+                    // Change colors
+                    &::before {
+                        border-top-color: #AE2573;
+                        border-right-color: #AE2573;
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573;
+                        border-left-color: #AE2573;
+                        transition: // Animate height first, then width
+                            height 0.25s ease-out,
+                            width 0.25s ease-out 0.25s;
+                    }
+                }
+            }
+        }
+            }
+        }
+
+        .woocommerce-loop-product__link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            color: black;
+            text-decoration: none;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+
+        }
+
+
+        .woocommerce-loop-product__title {
+            font-size: 18px;
+            color: black;
+            width: 45%;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 18px;
+
+            @media (max-width:850px) {
+                width: 90%;
+            }
+        }
+    }
+
+
+
+
+}

@@ -1,0 +1,673 @@
+.chwala {
+    padding: 138px;
+    padding-bottom: 100px;
+
+    @media (max-width:1500px) {
+        padding: 60px;
+    }
+
+    @media (max-width:700px) {
+        padding: 40px;
+    }
+
+    @media (max-width:500px) {
+        padding: 20px;
+    }
+
+    &__image,
+    &__info,
+    &__content {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__image {
+        img {
+            width: 100%;
+        }
+
+    }
+
+    &__info {
+        display: flex;
+        margin-top: 15px;
+        margin-bottom: 24px;
+
+        &-date,
+        &-hour,
+        &-author {
+            display: flex;
+            margin-right: 50px;
+
+            @media (max-width:600px) {
+                margin-right: 20px;
+            }
+
+            p {
+                margin-left: 10px;
+                color: #AE2573;
+                font-size: 15px;
+
+                @media (max-width:600px) {
+                    margin-left: 6px;
+                }
+            }
+
+        }
+
+        img {
+            width: 14px;
+            height: 14px;
+            object-fit: contain;
+        }
+
+    }
+
+    &__button {
+        margin-top: 35px;
+        text-align: center;
+
+        a {
+            background: transparent;
+            color: black;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 50px;
+            border: 1px solid black;
+            font-size: 16px;
+
+            position: relative;
+            transition: 0.25s;
+
+            box-sizing: border-box;
+            box-shadow: inset 0 0 0 2px transparent;
+
+            &::before,
+            &::after {
+                box-sizing: inherit;
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            &::before,
+            &::after {
+                // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+                border: 2px solid transparent;
+                width: 0;
+                height: 0;
+            }
+
+            // This covers the top & right borders (expands right, then down)
+            &::before {
+                top: 0;
+                left: 0;
+            }
+
+            // And this the bottom & left borders (expands left, then up)
+            &::after {
+                bottom: 0;
+                right: 0;
+            }
+
+
+            @supports not (-webkit-touch-callout: none) {
+
+                // Hover styles
+                &:hover {
+
+                    border: 1px solid #AE2573;
+                    color: #AE2573;
+                    background: transparent;
+
+                    &::before,
+                    &::after {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    &::before {
+                        border-top-color: #AE2573; // Make borders visible
+                        border-right-color: #AE2573;
+                        transition:
+                            width 0.25s ease-out, // Width expands first
+                            height 0.25s ease-out 0.25s; // And then height
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573; // Make borders visible
+                        border-left-color: #AE2573;
+                        transition:
+                            border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                            width 0.25s ease-out 0.5s, // And then exanding width
+                            height 0.25s ease-out 0.75s; // And finally height
+                    }
+
+
+
+                    // Start ::after in same position as ::before
+                    &::after {
+                        top: 0;
+                        left: 0;
+                    }
+
+                    // Change colors
+                    &::before {
+                        border-top-color: #AE2573;
+                        border-right-color: #AE2573;
+                    }
+
+                    &::after {
+                        border-bottom-color: #AE2573;
+                        border-left-color: #AE2573;
+                        transition: // Animate height first, then width
+                            height 0.25s ease-out,
+                            width 0.25s ease-out 0.25s;
+                    }
+                }
+
+                @supports (-webkit-touch-callout: none) {
+
+
+                    @media (min-width:900px) {
+                        &:hover {
+
+                            border: 1px solid #AE2573;
+                            color: #AE2573;
+                            background: transparent;
+
+                            &::before,
+                            &::after {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            &::before {
+                                border-top-color: #AE2573; // Make borders visible
+                                border-right-color: #AE2573;
+                                transition:
+                                    width 0.25s ease-out, // Width expands first
+                                    height 0.25s ease-out 0.25s; // And then height
+                            }
+
+                            &::after {
+                                border-bottom-color: #AE2573; // Make borders visible
+                                border-left-color: #AE2573;
+                                transition:
+                                    border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                                    width 0.25s ease-out 0.5s, // And then exanding width
+                                    height 0.25s ease-out 0.75s; // And finally height
+                            }
+
+
+
+                            // Start ::after in same position as ::before
+                            &::after {
+                                top: 0;
+                                left: 0;
+                            }
+
+                            // Change colors
+                            &::before {
+                                border-top-color: #AE2573;
+                                border-right-color: #AE2573;
+                            }
+
+                            &::after {
+                                border-bottom-color: #AE2573;
+                                border-left-color: #AE2573;
+                                transition: // Animate height first, then width
+                                    height 0.25s ease-out,
+                                    width 0.25s ease-out 0.25s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+.chwala-archive {
+    margin-top: 40px;
+
+    &__header {
+        box-shadow: 0px 0px 20px -12px rgba(0, 0, 0, 1);
+        background-image: url(../images/yellowbg.webp);
+
+        position: relative;
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width:1440px) {
+            max-width: 80%;
+        }
+
+
+
+        @media (max-width:900px) {
+            padding: 40px;
+            max-width: 100%;
+            margin: 0px 40px;
+        }
+
+
+        @media (max-width:650px) {
+            padding: 20px;
+            padding-top: 30px;
+
+        }
+
+        h1 {
+            color: #AE2573;
+            font-size: 42px;
+            margin-bottom: 36px;
+
+            @media (max-width:900px) {
+
+
+                font-size: 25px;
+            }
+        }
+
+        h4 {
+            font-size: 18px;
+
+            @media (max-width:900px) {
+
+
+                font-size: 16px;
+            }
+        }
+    }
+
+
+    &__container {
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 45px;
+        margin-bottom: 80px;
+        z-index: 10;
+        position: relative;
+
+        @media (max-width:1440px) {
+            max-width: 80%;
+        }
+
+
+
+        @media (max-width:900px) {
+            padding: 40px;
+            max-width: 100%;
+            margin: 0px 10px;
+        }
+
+
+        @media (max-width:650px) {
+            padding: 20px;
+            padding-top: 30px;
+
+        }
+
+        @media (max-width:700px) {
+            margin-bottom: 30px;
+        }
+
+    }
+
+    &__item {
+        width: 340px;
+        min-height: 533px;
+        position: relative;
+
+        margin: 0px 10px;
+        margin-bottom: 35px;
+        background-image: url(../images/yellowbg.webp);
+
+        @media (max-width:1550px) {
+            width: 315px;
+        }
+
+        @media (max-width:700px) {
+            width: 320px;
+
+        }
+
+    }
+
+    &__items {
+        perspective: 1000px;
+        background-color: transparent;
+        display: flex;
+        justify-content: space-around;
+
+        flex-wrap: wrap;
+    }
+
+    &__image {
+        color: black;
+
+
+        img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+
+    }
+
+    &__find {
+        opacity: 0;
+        z-index: 0;
+        transition: 0.6s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #FFB81C;
+        background-blend-mode: soft-light;
+
+
+
+        p {
+            background: transparent;
+            color: black;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 25px;
+            border: 1px solid black;
+            font-size: 16px;
+
+            position: relative;
+            transition: 0.25s;
+
+            box-sizing: border-box;
+            box-shadow: inset 0 0 0 2px transparent;
+
+            &::before,
+            &::after {
+                box-sizing: inherit;
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            &::before,
+            &::after {
+                // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+                border: 1px solid transparent;
+                width: 0;
+                height: 0;
+            }
+
+            // This covers the top & right borders (expands right, then down)
+            &::before {
+                top: 0;
+                left: 0;
+            }
+
+            // And this the bottom & left borders (expands left, then up)
+            &::after {
+                bottom: 0;
+                right: 0;
+            }
+
+
+
+            // Hover styles
+
+        }
+
+        &:hover {
+            p {
+                border: 1px solid #AE2573;
+                color: #AE2573;
+                background: transparent;
+
+                &::before,
+                &::after {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &::before {
+                    border-top-color: #AE2573; // Make borders visible
+                    border-right-color: #AE2573;
+                    transition:
+                        width 0.25s ease-out, // Width expands first
+                        height 0.25s ease-out 0.25s; // And then height
+                }
+
+                &::after {
+                    border-bottom-color: #AE2573; // Make borders visible
+                    border-left-color: #AE2573;
+                    transition:
+                        border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                        width 0.25s ease-out 0.5s, // And then exanding width
+                        height 0.25s ease-out 0.75s; // And finally height
+                }
+
+
+
+                // Start ::after in same position as ::before
+                &::after {
+                    top: 0;
+                    left: 0;
+                }
+
+                // Change colors
+                &::before {
+                    border-top-color: #AE2573;
+                    border-right-color: #AE2573;
+                }
+
+                &::after {
+                    border-bottom-color: #AE2573;
+                    border-left-color: #AE2573;
+                    transition: // Animate height first, then width
+                        height 0.25s ease-out,
+                        width 0.25s ease-out 0.25s;
+                }
+            }
+
+
+        }
+    }
+
+    &__content {
+        padding: 30px;
+        padding-bottom: 90px;
+
+        @media (max-width:700px) {
+            padding: 15px;
+            padding-bottom: 70px;
+
+        }
+
+        &-header {
+
+            font-size: 18px;
+
+            font-weight: 700;
+            width: 100%;
+
+            @media (max-width:900px) {
+
+
+                font-size: 15px;
+            }
+
+        }
+
+
+
+        &-text {
+            margin-top: 18px;
+        }
+
+        &-button {
+
+            position: absolute;
+
+            z-index: 50;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            a {
+                background: transparent;
+                color: black;
+                text-transform: uppercase;
+                text-decoration: none;
+                padding: 10px 40px;
+                border: 1px solid black;
+                font-size: 16px;
+
+                position: relative;
+                transition: 0.25s;
+
+                box-sizing: border-box;
+                box-shadow: inset 0 0 0 2px transparent;
+
+                @media (max-width:700px) {
+                    padding: 5px 15px;
+                    font-size: 14px;
+                }
+
+                &::before,
+                &::after {
+                    box-sizing: inherit;
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &::before,
+                &::after {
+                    // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+                    border: 1px solid transparent;
+                    width: 0;
+                    height: 0;
+                }
+
+                // This covers the top & right borders (expands right, then down)
+                &::before {
+                    top: 0;
+                    left: 0;
+                }
+
+                // And this the bottom & left borders (expands left, then up)
+                &::after {
+                    bottom: 0;
+                    right: 0;
+                }
+
+
+
+                @supports not (-webkit-touch-callout: none) {
+
+                    // Hover styles
+                    &:hover {
+
+                        border: 1px solid #AE2573;
+                        color: #AE2573;
+                        background: transparent;
+
+                        &::before,
+                        &::after {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        &::before {
+                            border-top-color: #AE2573; // Make borders visible
+                            border-right-color: #AE2573;
+                            transition:
+                                width 0.25s ease-out, // Width expands first
+                                height 0.25s ease-out 0.25s; // And then height
+                        }
+
+                        &::after {
+                            border-bottom-color: #AE2573; // Make borders visible
+                            border-left-color: #AE2573;
+                            transition:
+                                border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                                width 0.25s ease-out 0.5s, // And then exanding width
+                                height 0.25s ease-out 0.75s; // And finally height
+                        }
+
+
+
+                        // Start ::after in same position as ::before
+                        &::after {
+                            top: 0;
+                            left: 0;
+                        }
+
+                        // Change colors
+                        &::before {
+                            border-top-color: #AE2573;
+                            border-right-color: #AE2573;
+                        }
+
+                        &::after {
+                            border-bottom-color: #AE2573;
+                            border-left-color: #AE2573;
+                            transition: // Animate height first, then width
+                                height 0.25s ease-out,
+                                width 0.25s ease-out 0.25s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__pagination {
+        text-align: center;
+        margin-top: 40px;
+
+        a {
+            text-decoration: none;
+            color: #FFB81C;
+        }
+
+        .page-numbers {
+            padding: 0px 5px;
+            font-size: 18px;
+        }
+
+        .next {
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        .prev {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .current {
+            background-color: #FFB81C;
+            ;
+            color: #AE2573;
+            font-weight: bold;
+        }
+    }
+}

@@ -1,0 +1,479 @@
+.contact {
+
+
+    margin-bottom: 200px;
+
+    @media (max-width:950px) {
+        margin-bottom: 80px;
+    }
+
+    &::after {
+        content: '';
+        width: 50%;
+        height: 50%;
+        display: block;
+        position: fixed;
+        background-image: url(../images/yellowbg.webp);
+
+        top: -213px;
+        right: -25%;
+        transform: rotate(45deg);
+        opacity: 0.9;
+
+        @media (max-width:950px) {
+            display: none;
+        }
+    }
+
+
+    &::before {
+        content: '';
+        width: 50%;
+        height: 50%;
+        display: block;
+        position: fixed;
+        background-image: url(../images/yellowbg.webp);
+
+
+        left: -26%;
+        bottom: -240px;
+
+
+        transform: rotate(45deg);
+        opacity: 0.8;
+
+        @media (max-width:950px) {
+            display: none;
+        }
+    }
+
+    @media (max-width:950px) {
+        margin-bottom: 90px;
+    }
+
+    h1 {
+        margin-top: 100px;
+        text-align: center;
+        color: #FFB81C;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 64px;
+        margin-bottom: 90px;
+
+        @media (max-width:1600px) {
+            font-size: 40px;
+        }
+
+        @media (max-width:1100px) {
+            width: 95%;
+        }
+
+        @media (max-width:800px) {
+            font-size: 30px;
+        }
+
+        @media (max-width:750px) {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+    }
+
+    &__container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width:950px) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+
+    .contact-data {
+        width: 47%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: flex-start;
+
+        @media (max-width:950px) {
+            width: 100%;
+            justify-content: space-between;
+            padding: 0px 40px;
+        }
+
+        @media (max-width:600px) {
+
+            padding: 0px 20px;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            margin-bottom: 27px;
+
+            @media (max-width:950px) {
+                width: 47%;
+
+            }
+
+            @media (max-width:950px) {
+                width: 100%;
+
+            }
+
+            h3 {
+                margin-bottom: 16px;
+                color: #FFB81C;
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            a {
+                text-decoration: none;
+                color: white;
+                margin-bottom: 8px;
+                transition: 0.4s;
+
+                img {
+                    margin-right: 10px;
+                }
+
+                &:hover {
+                    color: #FFB81C;
+                }
+            }
+        }
+    }
+
+    &__form {
+        width: 47%;
+        position: relative;
+        z-index: 2;
+
+        @media (max-width:950px) {
+            width: 100%;
+            padding: 0px 40px;
+        }
+
+        @media (max-width:1350px) {
+            margin: 0px 20px;
+        }
+
+        @media (max-width:600px) {
+            width: 100%;
+            padding: 0px 20px;
+        }
+
+        h3 {
+            margin-bottom: 16px;
+            color: #FFB81C;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .wpcf7-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            label {
+                width: 45%;
+                margin-bottom: 15px;
+                display: flex;
+                flex-direction: column;
+                font-size: 13px;
+                color: white;
+                transition: 0.4s;
+
+                input {
+                    width: 100%;
+                    height: 38px;
+                    padding: 0px 10px;
+                    font-size: 15px;
+                    outline: 0;
+                    border: 0px solid #FFB81C;
+                    border-radius: 0;
+
+                    &:hover,
+                    &:focus {
+                        border: 1px solid #FFB81C;
+                    }
+                }
+
+                span {
+                    margin-top: 5px;
+                }
+            }
+
+            .message {
+                width: 100%;
+
+                textarea {
+                    width: 100%;
+                    padding: 10px 10px;
+                    font-size: 15px;
+                    outline: 0;
+                    border: 0px solid #FFB81C;
+                    border-radius: 0;
+
+                    &:hover,
+                    &:focus {
+                        border: 1px solid #FFB81C;
+                    }
+                }
+            }
+
+            .wpcf7-acceptance {
+                .wpcf7-list-item {
+                    margin: 0;
+
+                    .wpcf7-list-item-label {
+                        margin-left: 10px;
+                    }
+                }
+
+                label {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    align-items: center;
+
+                    input {
+                        width: auto;
+                    }
+
+                    input[type="checkbox"] {
+                        /* Add if not using autoprefixer */
+                        -webkit-appearance: none;
+                        /* Remove most all native input styles */
+                        appearance: none;
+                        /* For iOS < 15 */
+                        background-color: transparent;
+                        /* Not removed via appearance */
+                        margin: 0;
+
+                        font: inherit;
+                        color: #FFB81C;
+                        width: 15px;
+                        height: 23px;
+                        border: 0.15em solid white;
+                        border-radius: 0.15em;
+                        transform: translateY(-0.075em);
+
+                        display: grid;
+                        place-content: center;
+                    }
+
+                    input[type="checkbox"]::before {
+                        content: "";
+                        width: 1em;
+                        height: 1em;
+                        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+                        transform: scale(0);
+                        transform-origin: bottom left;
+                        transition: 120ms transform ease-in-out;
+                        box-shadow: inset 1em 1em #FFB81C;
+                        /* Windows High Contrast Mode */
+                        background-color: CanvasText;
+                    }
+
+                    input[type="checkbox"]:checked::before {
+                        transform: scale(1);
+                    }
+
+                    input[type="checkbox"]:focus {
+                        outline: 1px solid white;
+                        outline-offset: 2px 0.15em;
+                    }
+                }
+            }
+
+            .wpcf7-spinner {
+                display: none;
+            }
+
+            .wpcf7-submit {
+                background: transparent;
+                color: white;
+                text-transform: uppercase;
+                text-decoration: none;
+                padding: 10px 50px;
+                border: 1px solid white;
+                font-size: 16px;
+
+                position: relative;
+                transition: 0.25s;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+
+                box-sizing: border-box;
+                box-shadow: inset 0 0 0 2px transparent;
+                cursor: pointer;
+
+                @media (max-width:600px) {
+                    width: 100%;
+                }
+
+                &:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+
+                &::before,
+                &::after {
+                    box-sizing: inherit;
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &::before,
+                &::after {
+                    // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+                    border: 2px solid transparent;
+                    width: 0;
+                    height: 0;
+                }
+
+                // This covers the top & right borders (expands right, then down)
+                &::before {
+                    top: 0;
+                    left: 0;
+                }
+
+                // And this the bottom & left borders (expands left, then up)
+                &::after {
+                    bottom: 0;
+                    right: 0;
+                }
+
+
+
+                // Hover styles
+                @supports (-webkit-touch-callout: none) {
+
+
+                    @media (min-width:900px) {
+                        &:hover {
+
+                            border: 1px solid #FFB81C;
+                            color: #FFB81C;
+                            background: transparent;
+
+                            &::before,
+                            &::after {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            &::before {
+                                border-top-color: #FFB81C; // Make borders visible
+                                border-right-color: #FFB81C;
+                                transition:
+                                    width 0.25s ease-out, // Width expands first
+                                    height 0.25s ease-out 0.25s; // And then height
+                            }
+
+                            &::after {
+                                border-bottom-color: #FFB81C; // Make borders visible
+                                border-left-color: #FFB81C;
+                                transition:
+                                    border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                                    width 0.25s ease-out 0.5s, // And then exanding width
+                                    height 0.25s ease-out 0.75s; // And finally height
+                            }
+
+
+
+                            // Start ::after in same position as ::before
+                            &::after {
+                                top: 0;
+                                left: 0;
+                            }
+
+                            // Change colors
+                            &::before {
+                                border-top-color: #FFB81C;
+                                border-right-color: #FFB81C;
+                            }
+
+                            &::after {
+                                border-bottom-color: #FFB81C;
+                                border-left-color: #FFB81C;
+                                transition: // Animate height first, then width
+                                    height 0.25s ease-out,
+                                    width 0.25s ease-out 0.25s;
+                            }
+                        }
+                    }
+                }
+
+                @supports not (-webkit-touch-callout: none) {
+                    &:hover {
+
+                        border: 1px solid #FFB81C;
+                        color: #FFB81C;
+                        background: transparent;
+
+                        &::before,
+                        &::after {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        &::before {
+                            border-top-color: #FFB81C; // Make borders visible
+                            border-right-color: #FFB81C;
+                            transition:
+                                width 0.25s ease-out, // Width expands first
+                                height 0.25s ease-out 0.25s; // And then height
+                        }
+
+                        &::after {
+                            border-bottom-color: #FFB81C; // Make borders visible
+                            border-left-color: #FFB81C;
+                            transition:
+                                border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+                                width 0.25s ease-out 0.5s, // And then exanding width
+                                height 0.25s ease-out 0.75s; // And finally height
+                        }
+
+
+
+                        // Start ::after in same position as ::before
+                        &::after {
+                            top: 0;
+                            left: 0;
+                        }
+
+                        // Change colors
+                        &::before {
+                            border-top-color: #FFB81C;
+                            border-right-color: #FFB81C;
+                        }
+
+                        &::after {
+                            border-bottom-color: #FFB81C;
+                            border-left-color: #FFB81C;
+                            transition: // Animate height first, then width
+                                height 0.25s ease-out,
+                                width 0.25s ease-out 0.25s;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}
